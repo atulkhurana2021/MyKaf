@@ -1,7 +1,7 @@
 package com.Resources;
 
 import com.DAOLayer.Repository;
-import com.Utils.Utils;
+import com.Utils.GenericHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,12 @@ import java.util.List;
 public class ClusterManagerService {
 
     private Repository repository;
-    private Utils utils;
+    private GenericHelper genericHelper;
 
 
     public ClusterManagerService(Repository repository) {
         this.repository = repository;
-        this.utils = new Utils(repository);
+        this.genericHelper = new GenericHelper(repository);
     }
 
     public void start(List<String> bootstrapServers) throws Exception {
