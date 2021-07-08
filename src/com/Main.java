@@ -11,12 +11,18 @@ public class Main {
         // write your code here
 
         Repository repository = new Repository();
+        
+        
         ProducerService producerService = new ProducerService(repository);
         ConsumerService consumerService = new ConsumerService(repository);
         TopicService topicService = new TopicService(repository);
         ClusterManagerService clusterManagerService = new ClusterManagerService(repository);
+        
+        
         clusterManagerService.start(Arrays.asList("server1","server2"));
+        
         topicService.registerTopic("topic1",4);
+        
         producerService.registerProducer("producer1");
         consumerService.registerConsumer("group1","consumer1");
         consumerService.registerConsumer("group1","consumer2");
@@ -35,7 +41,6 @@ public class Main {
 
         System.out.println(consumerService.poll("consumer1"));
         System.out.println(consumerService.poll("consumer2"));
-
         System.out.println(consumerService.poll("consumer3"));
 
         producerService.send("topic1","producer1","hello1");
@@ -45,8 +50,9 @@ public class Main {
 
         System.out.println(consumerService.poll("consumer1"));
         System.out.println(consumerService.poll("consumer2"));
-
         System.out.println(consumerService.poll("consumer3"));
+        
+        clusterManagerService.stop();
 
     }
 }
