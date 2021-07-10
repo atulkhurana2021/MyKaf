@@ -1,6 +1,6 @@
 package com.Utils;
 
-import com.DAOLayer.Repository;
+import com.DAL.Repository;
 import com.Entities.Partition;
 import com.Entities.Topic;
 
