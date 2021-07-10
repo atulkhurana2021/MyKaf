@@ -10,6 +10,10 @@ When multiple consumers are subscribed to a topic and belong to the same consume
 That means every time there is change in consumer-groups/no. of partitions  , there will be rearrangement for partitions to consumer group mappings
 
 
+Inside generic Helper createPartitions method helps creating partitions for a topic.
+Inside generic Helper crearrangePartitionsWithGroups helps achiveing partitions to consumer mapping keeping consumer groups logic in mind.
+
+
 
 Asumptions due 1 hour constraint :
 1. All the services are deployed on single server
